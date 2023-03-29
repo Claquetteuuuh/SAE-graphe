@@ -43,4 +43,13 @@ public class GrapheList {
 
         return display;
     }
+
+    public void afficherVoisinDansGraphe(Sommet sommet) {
+
+        LienMaillon tmp = sommet.getTeteLien();
+        while (tmp.getSuivant() != null) {
+            System.out.println(tmp.getBatiment().toString());
+            tmp = tmp.getSuivant();
+        }
+    }
 }
