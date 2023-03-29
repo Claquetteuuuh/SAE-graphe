@@ -1,18 +1,21 @@
 package fr.claquetteuuuh;
 
 public class LienMaillon {
+    private String nomLien;
     private Sommet batiment;
     private double distance;
     private double fiabilite;
     private int duree;
     private LienMaillon suivant = null;
 
-    public LienMaillon(Sommet batimentCible, double distance, double fiabilite, int duree){
+    public LienMaillon(Sommet batimentCible, double distance, double fiabilite, int duree, String nomLien){
+        this.nomLien = nomLien;
         this.batiment = batimentCible;
         this.distance = distance;
         this.fiabilite = fiabilite;
         this.duree = duree;
     }
+
 
     public double getDistance() {
         return distance;
