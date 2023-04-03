@@ -55,7 +55,11 @@ public class Sommet {
 
     public boolean ajoutLien(Sommet sommet, double distance, double fiabilite, int duree, String nomLien){
         LienMaillon tmp = this.teteLien;
+        if(tmp == null){
+            this.teteLien = new LienMaillon(sommet, distance, fiabilite, duree, nomLien);
+        }
         while(tmp != null){
+
             if(tmp.getSuivant() == null){
                 tmp.setSuivant(new LienMaillon(sommet, distance, fiabilite, duree, nomLien));
                 return true;
