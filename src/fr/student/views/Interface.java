@@ -376,11 +376,13 @@ public class Interface extends JFrame implements ComponentListener {
         // dropdown / combobox sommet
         ArrayList<String> sommets = this.graphe.getAllSommetName();
         JComboBox sommetDepDropDown = new JComboBox(this.graphe.getAllSommetName().toArray());
-        sommetDepDropDown.setSelectedItem(sommets.get(0));
-        this.selectedSommetDep = sommets.get(0); // sommet de depart par defaut
         JComboBox sommetArrDropDown = new JComboBox(this.graphe.getAllSommetName().toArray());
-        sommetArrDropDown.setSelectedItem(sommets.get(sommets.size()-1));
-        this.selectedSommetArr = sommets.get(sommets.size()-1); // sommet d'arrivee par defaut
+        if(!sommets.isEmpty()){
+            sommetDepDropDown.setSelectedItem(sommets.get(0));
+            this.selectedSommetDep = sommets.get(0); // sommet de depart par defaut
+            sommetArrDropDown.setSelectedItem(sommets.get(sommets.size()-1));
+            this.selectedSommetArr = sommets.get(sommets.size()-1); // sommet d'arrivee par defaut
+        }
 
         // taille des dropdown
         sommetDepDropDown.setPreferredSize(new Dimension(((WIDTH/4)-20)/2, 30));
@@ -431,7 +433,9 @@ public class Interface extends JFrame implements ComponentListener {
         // dropdown / combobox sommet
         JPanel dropDownPanel = new JPanel(new GridLayout(1, 2, 0, 0));
         JComboBox sommetVoisinDropDown = new JComboBox(this.graphe.getAllSommetName().toArray());
-        sommetVoisinDropDown.setSelectedItem(this.graphe.getAllSommetName().toArray()[0]);
+        if(!sommets.isEmpty()){
+            sommetVoisinDropDown.setSelectedItem(this.graphe.getAllSommetName().toArray()[0]);
+        }
         sommetVoisinDropDown.setPreferredSize(new Dimension(((WIDTH/4)-40)/2, 30)); // calculer le chemin
         sommetVoisinDropDown.setSize(new Dimension(((WIDTH/4)-40)/2, 30));
         initSommetChoiceDropdownBottom(sommetVoisinDropDown); // event listener

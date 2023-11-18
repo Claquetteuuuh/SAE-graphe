@@ -58,11 +58,13 @@ public class GrapheList{
     public Boolean loadInGraphe(String filename){
         Boolean res = false;
         ArrayList<Sommet> sommets = Utils.fichierToSommet(filename);
-        for(Sommet s : sommets){
-            this.addSommet(s);
-        }
-        if(sommets.get(0).equals(this.teteGraphe.getSommet())){
-            res = true;
+        if(!sommets.isEmpty()){
+            for(Sommet s : sommets){
+                this.addSommet(s);
+            }
+            if(sommets.get(0).equals(this.teteGraphe.getSommet())){
+                res = true;
+            }
         }
         return res;
     }
